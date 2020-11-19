@@ -33,12 +33,14 @@ public class Lesson2 {
     private String city = "Delhi";
 
     @Test
-    void testForm() {
+    void fillFormTest() {
+        fillForm();
         submit();
         check();
+
     }
 
-    void submit () {
+    void fillForm(){
         // Открыть форму
         open("https://demoqa.com/automation-practice-form");
 
@@ -71,7 +73,9 @@ public class Lesson2 {
 
         $(byText("Select City")).scrollTo().click();
         $$("div[id^=\"react-select-4-option\"]").find(text("Delhi")).click();
+    }
 
+    void submit () {
         $("#submit").click();
     }
 
@@ -90,9 +94,5 @@ public class Lesson2 {
 
     void checkItemEqual (String key, String value) {
         $$(".table-responsive td").find(text(key)).sibling(0).shouldHave(exactText(value));
-    }
-
-    void checkItemContain (String key, String value) {
-        $$(".table-responsive td").find(text(key)).sibling(0).shouldBe(exactText(value));
     }
 }
