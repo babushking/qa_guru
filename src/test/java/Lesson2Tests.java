@@ -78,8 +78,6 @@ public class Lesson2Tests {
         $("#submit").click();
     }
 
-
-
     void checkForm () {
         checkValue("Student Name", this.firstName + " " + this.lastName);
         checkValue("Student Email", this.userEmail);
