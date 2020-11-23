@@ -34,12 +34,12 @@ public class Lesson2Tests {
 
     @Test
     void fillFormTest() {
-        openForm();
+        openPage();
         fillForm();
         checkForm();
     }
 
-    void openForm() {
+    void openPage() {
         // Открыть форму
         open("https://demoqa.com/automation-practice-form");
     }
@@ -53,12 +53,12 @@ public class Lesson2Tests {
         $("#userNumber").setValue(this.userNumber);
 
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").selectOption("1987");
-        $(".react-datepicker__month-select").selectOption("October");
-        $(".react-datepicker__day--0" + "24").click();
+        $(".react-datepicker__year-select").selectOption(this.year);
+        $(".react-datepicker__month-select").selectOption(this.month);
+        $(".react-datepicker__day--0" + this.day).click();
 
         $("#subjectsInput").setValue(this.subjects);
-        $$("div[id^='react-select-2-option']").find(text("Computer Science")).click();
+        $$("div[id^='react-select-2-option']").find(text(this.subjects)).click();
 
         $("label[for='hobbies-checkbox-1']").click();
         $("label[for='hobbies-checkbox-2']").click();
